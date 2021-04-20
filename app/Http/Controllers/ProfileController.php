@@ -13,6 +13,7 @@ class ProfileController extends Controller
 
     function __construct()
     {
+
     }
 
     public function index()

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+
+        $comment= Comment::all();
+        return view('comment.commentsedit',compact('comment'));
     }
 
     /**
@@ -24,7 +29,6 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -33,9 +37,16 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        //
+        $user_comment= Auth::user()->name;
+        Comment::create([
+            'comment'=>$request->comment,
+            'puntuacion'=>$request->puntuacion,
+            'user'=>$user_comment,
+            'video'=>$request->videoid,
+]);
+return redirect('/');
     }
 
     /**
@@ -44,9 +55,11 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show($comment)
     {
-        //
+        $comment=Comment::where('id',$comment);
+        $comment->delete();
+        return redirect()->route('comment.index');
     }
 
     /**
@@ -80,6 +93,6 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+ //
     }
 }

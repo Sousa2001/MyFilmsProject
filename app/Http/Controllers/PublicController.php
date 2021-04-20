@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Video;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
@@ -16,7 +17,8 @@ class PublicController extends Controller
     public function show()
     {
         $videos= Video::all();
-        return view('welcome',compact('videos'));
+        $comments=Comment::all();
+        return view('welcome',compact('videos','comments'));
     }
 
 }

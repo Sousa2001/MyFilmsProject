@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\Rol;
 use Carbon\Traits\Timestamp;
 use Illuminate\Support\Facades\Auth;
@@ -66,6 +67,8 @@ class VideoController extends Controller
 
    public function show($id)
    {
+    $comment= Comment::where('video',$id);
+    $comment->delete();
     $video=Video::where('id',$id);
     $video->delete();
     return redirect()->route('video.index');

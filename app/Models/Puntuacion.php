@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Puntuacion extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'user',
+        'video',
+        'p_num'
+    ];
 }

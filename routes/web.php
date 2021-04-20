@@ -24,10 +24,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('video', 'App\Http\Controllers\VideoController');
 Route::resource('profile', 'App\Http\Controllers\ProfileController');
 Route::resource('public', 'App\Http\Controllers\PublicController');
+Route::resource('comment', 'App\Http\Controllers\CommentController');
 
 Route::get('/edit', [App\Http\Controllers\VideoController::class, 'index'])->name('edit');
+Route::get('/editcomment', [App\Http\Controllers\CommentController::class, 'index'])->name('editcomment');
 Route::get('/newvideo', [App\Http\Controllers\VideoController::class, 'newvideo'])->name('newvideo');
 Route::get('/', [App\Http\Controllers\PublicController::class, 'show'])->name('show');
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-
 

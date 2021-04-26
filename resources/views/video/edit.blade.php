@@ -9,17 +9,17 @@
             @method('PUT')
             Title
             <br/>
-            <input type="text" name="title" value="{{$video->title}}" class="form form-control">
+            <input type="text" required name="title" value="{{$video->title}}" class="form form-control">
             <br>
 
             Description
             <br/>
-            <input type="text" name="desc" value="{{$video->desc}}" class="form form-control">
+            <input type="text" required name="desc" value="{{$video->desc}}" class="form form-control">
             <br>
 
             Content
             <br/>
-            <select multiple class="form form-control" name="cont" value="{{$video->cont}}">
+            <select multiple class="form form-control" name="cont" required value="{{$video->cont}}">
                 <option>Acción</option>
                 <option>Aventura</option>
                 <option>Comedia</option>
@@ -34,11 +34,11 @@
 
             Route
             <br/>
-            <input type="text" name="route" value="{{$video->route}}" class="form form-control">
+            <input type="text" name="route" required value="{{$video->route}}" class="form form-control">
             <br>
             Owner
             <br/>
-            <input class="list-group " list="user" name="user" value="{{$video->user}}">
+            <input class="list-group " list="user" readonly name="user" value="{{$video->user}}">
             <br/>
             <input type="submit" class="btn btn-primary" value="Save">
             <br/>

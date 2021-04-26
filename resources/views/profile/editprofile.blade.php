@@ -9,12 +9,12 @@
             @method('PUT')
             Name
             <br/>
-            <input type="text" name="name" value="{{$user->name}}" class="form form-control">
+            <input type="text" required name="name" value="{{$user->name}}" class="form form-control">
             <br>
 
             Email
             <br/>
-            <input type="text" name="email" value="{{$user->email}}" class="form form-control">
+            <input type="text" required name="email" value="{{$user->email}}" class="form form-control">
             <br>
             Rol
             <input type="text" name="password" value="{{$user->rol}}" readonly class="form form-control">
